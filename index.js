@@ -21,7 +21,7 @@ const MongoDBStore = require('connect-mongo')(session);
 
 const db_host = process.env.db_host || "mongodb://127.0.0.1/yelp-camp";;
 // const dbURL = 'mongodb://127.0.0.1:27017/yelpcamp'
-console.log(db_host, process.env.mapbox_token, process.env.cloudinary_secret, process.env.cloudinary_key, process.env.cloudinary_cloudName)
+console.log(process.env.db_host, process.env.secret, process.env.mapbox_token, process.env.cloudinary_secret, process.env.cloudinary_key, process.env.cloudinary_cloudName)
 
 mongoose.connect(db_host)
     .then(() => { console.log("Connected to DB!!") })
@@ -36,9 +36,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+let secret = process.env.secret || "mytopsecret";
 let store = new MongoDBStore({
     url: db_host,
-    secret: "mytopsecret",
+    secret,
     touchAfter: 24 * 60 * 60
 })
 
