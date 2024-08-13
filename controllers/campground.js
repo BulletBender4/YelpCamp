@@ -3,7 +3,7 @@ const campGround = require('../Model/campGround');
 const Campground = require('../Model/campGround');
 const { cloudinary } = require('../cloudinary')
 const mapbox = require('@mapbox/mapbox-sdk/services/geocoding');
-const geocoder = mapbox({ accessToken: process.env.mapbox_token });
+const geocoder = mapbox({ accessToken: process.env.MAPBOX_TOKEN });
 
 
 module.exports.index = (async (req, res) => {

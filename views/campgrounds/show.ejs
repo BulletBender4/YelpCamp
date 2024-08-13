@@ -152,7 +152,7 @@
         let coordinates = '<%- JSON.stringify(details.geometry.coordinates) %>';
         let title = '<%- JSON.stringify(details.title) %>';
         let place = '<%- JSON.stringify(details.location) %>';
-        mapboxgl.accessToken = '<%- process.env.mapbox_token %>';
+        mapboxgl.accessToken = '<%- process.env.MAPBOX_TOKEN %>';
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v10',

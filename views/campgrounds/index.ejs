@@ -32,7 +32,7 @@
 
         <% } %>
             <script>
-                let clusterMapToken = '<%- process.env.mapbox_token %>'
+                let clusterMapToken = '<%- process.env.MAPBOX_TOKEN %>'
                 let campground = {
                     "features": JSON.parse('<%-JSON.stringify(campgrounds) %>')
                 };

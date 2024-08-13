@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
-console.log(process.env.cloudinary_cloudName, process.env.cloudinary_key, process.env.cloudinary_secret, process.env.mapbox_token)
+// console.log(process.env.cloudinary_cloudName, process.env.cloudinary_key, process.env.cloudinary_secret, process.env.mapbox_token)
 
 const express = require('express');
 const route = express.Router();

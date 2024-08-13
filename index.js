@@ -19,7 +19,7 @@ const MongoDBStore = require('connect-mongo')(session);
 
 
 
-const db_host = process.env.db_host;
+const db_host = process.env.db_host || "mongodb://127.0.0.1/yelp-camp";;
 // const dbURL = 'mongodb://127.0.0.1:27017/yelpcamp'
 console.log(db_host, process.env.mapbox_token, process.env.cloudinary_secret, process.env.cloudinary_key, process.env.cloudinary_cloudName)
 
