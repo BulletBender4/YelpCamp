@@ -17,9 +17,9 @@ const userRouter = require('./routes/user');
 const mongoose = require('mongoose');
 const MongoDBStore = require('connect-mongo')(session);
 
-// const dbURL = process.env.db_host;
+const db_host = process.env.db_host;
 const dbURL = 'mongodb://127.0.0.1:27017/yelpcamp'
-mongoose.connect(dbURL)
+mongoose.connect(db_host)
     .then(() => { console.log("Connected to DB!!") })
     .catch((err) => { console.log("got an error!", err) });
 
