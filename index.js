@@ -17,8 +17,12 @@ const userRouter = require('./routes/user');
 const mongoose = require('mongoose');
 const MongoDBStore = require('connect-mongo')(session);
 
+
+
 const db_host = process.env.db_host;
-const dbURL = 'mongodb://127.0.0.1:27017/yelpcamp'
+// const dbURL = 'mongodb://127.0.0.1:27017/yelpcamp'
+console.log(db_host, process.env.mapbox_token, process.env.cloudinary_secret, process.env.cloudinary_key, process.env.cloudinary_cloudName)
+
 mongoose.connect(db_host)
     .then(() => { console.log("Connected to DB!!") })
     .catch((err) => { console.log("got an error!", err) });
@@ -33,7 +37,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 let store = new MongoDBStore({
-    url: dbURL,
+    url: db_host,
     secret: "mytopsecret",
     touchAfter: 24 * 60 * 60
 })
