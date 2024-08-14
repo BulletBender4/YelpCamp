@@ -47,7 +47,7 @@ const isOwner = async (req, res, next) => {
 
 route.route('/')
     .get(catchWrap(campgrounds.index))
-    .post(isAuth, upload.array('image'), catchWrap(campgrounds.postNewCampground))
+    .post(isAuth, upload.array('image'), campgroundValidator, catchWrap(campgrounds.postNewCampground))
 // .post(upload.array('image'), (req, res) => {
 //     console.log(req.body);
 //     console.log(req.files);
@@ -59,7 +59,7 @@ route.get('/new', isAuth, campgrounds.renderNewForm);
 
 route.route('/:id')
     .get(catchWrap(campgrounds.showCampground))
-    .patch(isAuth, isOwner, upload.array('image'), catchWrap(campgrounds.updateCampground))
+    .patch(isAuth, isOwner, upload.array('image'), campgroundValidator, catchWrap(campgrounds.updateCampground))
     .delete(isAuth, isOwner, campgrounds.deleteCampground)
 
 route.get('/:id/edit', isAuth, isOwner, catchWrap(campgrounds.editCampground));
